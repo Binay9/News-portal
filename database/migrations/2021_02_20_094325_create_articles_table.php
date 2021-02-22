@@ -19,12 +19,10 @@ class CreateArticlesTable extends Migration
             $table->text('description');
             $table->string('image', 255)->nullable();
             $table->foreignId('category_id')
-                ->index('CATID')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');
             $table->foreignId('admin_id')
-            ->index('ADMINID')
                 ->constrained()
                 ->onUpdate('cascade')
                 ->onDelete('cascade');

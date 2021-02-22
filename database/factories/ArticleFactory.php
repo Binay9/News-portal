@@ -2,7 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Admin;
 use App\Models\Article;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class ArticleFactory extends Factory
@@ -22,7 +24,13 @@ class ArticleFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name' => $this->faker->name,
+            'description' => $this->faker->sentence,
+            'image' => '',
+            'category_id' => Category::factory(),
+            'admin_id' => Admin::factory(),
+            'status' => 'published',
+            'published_at' => $this->faker->date
         ];
     }
 }
