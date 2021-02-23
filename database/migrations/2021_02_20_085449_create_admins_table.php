@@ -18,6 +18,7 @@ class CreateAdminsTable extends Migration
             $table->string('name', 200);
             $table->string('email', 200)->unique();
             $table->string('password', 200);
+            $table->rememberToken();
             $table->text('address', 100);
             $table->string('phone', 15);
             $table->enum('type', ['admin', 'author']);
