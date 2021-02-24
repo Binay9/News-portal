@@ -1,4 +1,4 @@
-@extends('cms.app')
+@extends('front.app')
 
 @section('content')
         <div class="row">
