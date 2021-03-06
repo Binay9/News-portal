@@ -5,16 +5,15 @@
         </h2>
     </x-slot>
 
-
-    <p></p>
-
-    <!-- <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 bg-white border-b border-gray-200">
-                    You're logged in!
+    <div class="py-12 mx-10">
+            <div class="flex justify-between bg-white overflow-hidden sm:rounded-lg p-4 px-8 mx-4">
+                <div class="">
+                    Welcome... {{$name}} <br>You're logged in as {{$user}}.
+                </div>
+                <div class="pt-2">
+                    <a href="{{route('cms.profile')}}" class="p-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800">View Profile</a>
                 </div>
             </div>
-        </div>
-    </div> -->
+    </div>
+
 </x-app-layout>
