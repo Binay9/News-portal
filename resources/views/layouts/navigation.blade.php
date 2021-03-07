@@ -60,6 +60,7 @@
                         <div class="py-2 hover:bg-indigo-50">
                             <a href="{{route('cms.profile.show', [Auth::user()->id])}}" class="text-sm text-gray-700 mx-4">Profile</a>
                         </div>
+                        
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
                             <x-dropdown-link :href="route('logout')" onclick="event.preventDefault();

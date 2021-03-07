@@ -30,7 +30,8 @@ Route::middleware('auth')->prefix('dashboard')->name('cms.')->group(function() {
     Route::get('/', [HomeController::class, 'index'])->name('home');
     Route::get('/profile/{admin}', [HomeController::class, 'showProfile'])->name('profile.show');
     Route::get('/profile/{admin}/edit', [HomeController::class, 'editProfile'])->name('profile.edit');
-    Route::put('/profile/update', [HomeController::class, 'updateProfile'])->name('profile.update');
+    Route::put('/profile/{admin}', [HomeController::class, 'updateProfile'])->name('profile.update');
+    Route::get('/pass', [HomeController::class, 'showPass'])->name('pass');
     Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/comments', [HomeController::class, 'comments'])->name('comments');

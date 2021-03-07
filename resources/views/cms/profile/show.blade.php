@@ -6,6 +6,7 @@
         <div class="">
             <a href="{{route('cms.profile.edit', [$admin->id])}}" class="p-2 bg-pink-600 text-white font-semibold rounded-lg hover:bg-pink-500">Edit Profile</a>
         </div>
+        
     </x-slot>
 
     <div class="py-10 mx-12">

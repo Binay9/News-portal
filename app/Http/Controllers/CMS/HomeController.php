@@ -23,9 +23,22 @@ class HomeController extends Controller
         return view('cms.profile.edit', compact('admin'));
     }
 
-    public function updateProfile()
+    public function updateProfile(Admin $admin)
     {
-        dd(auth()->user()->name);
+       
+        $admin->update( request()->validate([
+            'name' => 'required|string',
+            'phone' => 'required|numeric',
+            'address' => 'required'
+        ]));
+
+        return redirect()->route('cms.profile.show', [$admin->id]);
+        
+    }
+
+    public function showPass()
+    {
+        return view('cms.profile.pass');
     }
 
 
