@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Profile</h2>
         </div>
         <div class="">
-            <a href="{{route('cms.profile.edit')}}" class="p-2 bg-red-600 text-white font-semibold rounded-lg hover:bg-red-800">Edit Profile</a>
+            <a href="{{route('cms.profile.edit', [$admin->id])}}" class="p-2 bg-pink-600 text-white font-semibold rounded-lg hover:bg-pink-500">Edit Profile</a>
         </div>
     </x-slot>
 
@@ -17,9 +17,11 @@
 
             <div>
                 <ul class="list-disc list-inside">
-                    @foreach($infos as $k => $v)
-                    <li>{{$k}} : {{$v}}</li>
-                    @endforeach
+                   <li>Name: {{$admin->name}}</li>
+                   <li>Email: {{$admin->email}}</li>
+                   <li>Type: {{$admin->type}}</li>
+                   <li>Phone: {{$admin->phone}}</li>
+                   <li>Address: {{$admin->address}}</li>
                 </ul>
             </div>
 

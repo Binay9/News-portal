@@ -3,54 +3,52 @@
 namespace App\Http\Controllers\CMS;
 
 use App\Http\Controllers\Controller;
+use App\Models\Admin;
 use Illuminate\Http\Request;
-use Illuminate\Support\Arr;
-use Illuminate\Support\Str;
 
 class HomeController extends Controller
 {
     public function index() 
     {
-        return view('dashboard', ['name'=> auth()->user()->name ,'user' =>  auth()->user()->type]);
+        return view('dashboard', ['id'=> auth()->user()->id, 'name'=> auth()->user()->name ,'user' =>  auth()->user()->type]);
     }
 
-    public function showProfile() 
+    public function showProfile(Admin $admin) 
     {
-        $datas = auth()->user();
-
-        $infos = $this->getUserInfos($datas);
-
-        return view('cms.profile.show', compact('infos'));
+        return view('cms.profile.show', compact('admin'));
     }
 
-    public function editProfile()
+    public function editProfile(Admin $admin)
     {
-
-        $datas = auth()->user();
-        $infos = $this->getUserInfos($datas);
-        
-
-        return view('cms.profile.edit', compact('infos'));
+        return view('cms.profile.edit', compact('admin'));
     }
+
+    public function updateProfile()
+    {
+        dd(auth()->user()->name);
+    }
+
 
     public function comments(){
         return view('cms.comments');
     }
 
-    protected function getUserInfos($datas) {
+    // protected function getUserInfos() {
 
-        $rawdata = collect($datas)->toArray();
-        $rawdata = Arr::collapse($rawdata);
-        $rawdata = Arr::except($rawdata, [ 'id','password', 'remember_token', 'created_at', 'updated_at']);
+    //     $datas = auth()->user();
 
-        $infos = [];
-        foreach($rawdata as $k => $v){
-           $k = Str::ucfirst($k);
-           $v = Str::ucfirst($v);
-           $infos[$k]= $v;
-        }
+    //     $rawdata = collect($datas)->toArray();
+    //     $rawdata = Arr::collapse($rawdata);
+    //     $rawdata = Arr::except($rawdata, [ 'id','password', 'remember_token', 'created_at', 'updated_at']);
 
-        return $infos;
+    //     $infos = [];
+    //     foreach($rawdata as $k => $v){
+    //        $k = Str::ucfirst($k);
+    //        $v = Str::ucfirst($v);
+    //        $infos[$k]= $v;
+    //     }
 
-    }
+    //     return $infos;
+
+    // }
 }

@@ -11,7 +11,7 @@
                     Welcome... {{$name}} <br>You're logged in as {{$user}}.
                 </div>
                 <div class="pt-2">
-                    <a href="{{route('cms.profile')}}" class="p-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800">View Profile</a>
+                    <a href="{{route('cms.profile.show', [$id])}}" class="p-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800">View Profile</a>
                 </div>
             </div>
     </div>
