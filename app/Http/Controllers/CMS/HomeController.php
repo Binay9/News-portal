@@ -5,6 +5,7 @@ namespace App\Http\Controllers\CMS;
 use App\Http\Controllers\Controller;
 use App\Models\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 
 class HomeController extends Controller
 {
@@ -39,6 +40,37 @@ class HomeController extends Controller
     public function showPass()
     {
         return view('cms.profile.pass');
+    }
+
+    public function updatePass()
+    {
+        
+        $data = request()->validate([
+            'old_password' => 'password|required',
+            'password' => 'required|min:8',
+            'confirm_password' => 'required|min:8'
+        ]);
+
+        if($data['password'] != $data['confirm_password']){
+            return redirect()->route('cms.pass')->with('msg', 'New password not matched!');
+        }
+        
+        $admin = Admin::find(auth()->user()->id);
+
+        $password = Hash::make($data['password']);
+
+        $admin->update(['password' => $password]);
+
+        return redirect()->route('cms.pass')->with('msg', 'Password Changed.');
+
+        
+        
+        // return redirect()->route('cms.profile.pass');
+        
+        // return redirect('register')->withErrors($data['confirm_']);
+        // request()->session()->flash('msg', 'New password not matched!');
+        // // session(['msg' => '']);
+
     }
 
 
