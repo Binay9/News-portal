@@ -4,7 +4,7 @@
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">Articles</h2>
         </div>
         <div class="">
-            <a href="#" class="p-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800">Create article</a>
+            <a href="{{route('cms.article.create')}}" class="p-2 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-800">Create article</a>
         </div>
     </x-slot>
 

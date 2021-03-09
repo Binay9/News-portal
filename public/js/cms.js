@@ -1,5 +1,5 @@
 $(function () {
-    $('.alert').delay(5000).slideup(700);
+    $('.alert').delay(1000).slideUp(700);
 
     $('#confirm_password').keyup(function () {
         npass = $('#password').val();
@@ -14,5 +14,5 @@ $(function () {
         }
 
     });
-}
-);
+
+});

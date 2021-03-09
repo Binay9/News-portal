@@ -34,6 +34,7 @@ Route::middleware('auth')->prefix('dashboard')->name('cms.')->group(function() {
     Route::get('/pass', [HomeController::class, 'showPass'])->name('pass');
     Route::put('/pass', [HomeController::class, 'updatePass'])->name('pass.update');
     Route::get('/articles', [ArticleController::class, 'index'])->name('articles');
+    Route::get('/article/create', [ArticleController::class, 'create'])->name('article.create');
     Route::get('/categories', [CategoryController::class, 'index'])->name('categories');
     Route::get('/comments', [HomeController::class, 'comments'])->name('comments');
 

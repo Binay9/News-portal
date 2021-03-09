@@ -9,7 +9,11 @@ class ArticleController extends Controller
 {
     
     public function index(){
-        return view('cms.articles.index');
+        return view('cms.article.index');
+    }
+
+    public function create() {
+        return view('cms.article.create');
     }
 
 }

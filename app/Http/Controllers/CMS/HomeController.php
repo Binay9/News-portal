@@ -61,7 +61,8 @@ class HomeController extends Controller
 
         $admin->update(['password' => $password]);
 
-        return redirect()->route('cms.pass')->with('msg', 'Password Changed.');
+        return redirect()->route('cms.pass')->with(['mtype' => 'success',
+            'msg' => 'Password Changed Successfully.']);
 
         
         

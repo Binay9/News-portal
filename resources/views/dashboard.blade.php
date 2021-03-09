@@ -1,3 +1,9 @@
+@if(Session::has('msg'))
+<div class="alert text-center bg-blue-400">
+    {{Session::get('msg')}}
+</div>
+@endif
+
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
